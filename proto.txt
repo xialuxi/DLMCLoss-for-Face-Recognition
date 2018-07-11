@@ -1,0 +1,28 @@
+################cosin loss ###################
+
+#layer{
+#  name: "cosinloss"
+#  type: "Python"
+#  bottom: "norm_fc5"
+#  bottom: "label"
+#  top: "cosinloss"
+#  python_param {
+#    module: 'pyloss'
+#    layer: 'CosinLossLayer'
+#  }
+#  loss_weight: 0.008
+#}
+
+################dlmc loss ###################
+layer{
+  name: "dlmcloss"
+  type: "Python"
+  bottom: "fc6"
+  bottom: "label"
+  top: "dlmcloss"
+  python_param {
+    module: 'pyloss'
+    layer: 'DLMCLossLayer'
+  }
+  loss_weight: 0.03
+}
